@@ -43,8 +43,8 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(num) {
+  return (num === 1) ? num : num * getFactorial(num - 1);
 }
 
 
@@ -225,8 +225,10 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  const str = String(num);
+  const arrStr = str.split('');
+  return Number(arrStr.reverse().join(''));
 }
 
 
