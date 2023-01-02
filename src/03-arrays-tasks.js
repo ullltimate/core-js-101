@@ -373,8 +373,9 @@ function getFalsyValuesCount(array) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(array, item) {
+  const count = array.reduce((a, b) => a + (b === item), 0);
+  return count;
 }
 
 /**
@@ -458,8 +459,11 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const length = end - start + 1;
+  const arr = Array(length);
+  const newArr = arr.fill(0).map((e, i) => start + i);
+  return newArr;
 }
 
 /**
@@ -565,8 +569,27 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  let head;
+  let tail;
+  const array = [];
+  let index;
+  if (arr.length % 2 === 0) {
+    index = Math.ceil((arr.length - 1) / 2);
+    head = arr.slice(0, index);
+    tail = arr.slice(index);
+    array.push(tail);
+    array.push(head);
+  } else {
+    index = Math.floor(arr.length / 2);
+    head = arr.slice(0, index);
+    tail = arr.slice(index + 1);
+    const centerElem = arr[index];
+    array.push(tail);
+    array.push(centerElem);
+    array.push(head);
+  }
+  return array.flat();
 }
 
 

@@ -27,8 +27,18 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(number) {
+  let value;
+  if (number % 3 === 0 && number % 5 === 0) {
+    value = 'FizzBuzz';
+  } else if (number % 3 === 0) {
+    value = 'Fizz';
+  } else if (number % 5 === 0) {
+    value = 'Buzz';
+  } else {
+    value = number;
+  }
+  return value;
 }
 
 
@@ -60,8 +70,8 @@ function getFactorial(num) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  return (n2 === n1) ? n1 : n2 + getSumBetweenNumbers(n1, n2 - 1);
 }
 
 
@@ -80,8 +90,14 @@ function getSumBetweenNumbers(/* n1, n2 */) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  let rez;
+  if (a < b + c && b < a + c && c < a + b) {
+    rez = true;
+  } else {
+    rez = false;
+  }
+  return rez;
 }
 
 
@@ -191,8 +207,19 @@ function findFirstSingleChar(/* str */) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  const array = [];
+  if (a > b) {
+    array.push(b);
+    array.push(a);
+  } else {
+    array.push(a);
+    array.push(b);
+  }
+  if (isEndIncluded && isStartIncluded) return `[${array.join(', ')}]`;
+  if (isStartIncluded) return `[${array.join(', ')})`;
+  if (isEndIncluded) return `(${array.join(', ')}]`;
+  return `(${array.join(', ')})`;
 }
 
 
@@ -323,8 +350,9 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  const str = num.toString(n);
+  return str;
 }
 
 
